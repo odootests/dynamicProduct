@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id= "dynamicProduct_product_template_form_view" model="ir.ui.view">
+            <field name="inherit_id" ref="product.product_template_only_form_view"/>
+            <field name="model">product.template</field>
+            <field name="arch" type="xml">
+                <field name="type" position="before">
+                    <field name="combined_name"/>
+                    <field name="ring_spun_count"/> 
+                    <field name="twist_count"/>
+                    <field name="compact_state"/>
+                    <field name="process"/>
+                    <field name="trade_name"/>
+                    <field name="slub"/>
+                    <field name="cotton_type"/>
+                    <field name="cotton_percentage"/>
+                    <label string=" "/><label string=" "/>
+                    <field name="dyed_cotton_percentage"/> 
+                    <field name="white_viscose_percentage"/>
+                    <field name="dyed_viscose_percentage"/>
+                    <field name="polyester_percentage"/>
+                    <field name="linen_percentage"/>
+                    <field name="tencel_percentage"/>
+                    <field name="modal_percentage"/>
+                    <label string=" "/><label string=" "/>
+                    <field name="contamination"/>
+                    <field name="yarn_process"/>
+                    <field name="popularity"/>
+                    <label string=" "/><label string=" "/>   
+                </field>
+            </field>
+        </record> 
+
+        <record id="dynamicProduct.product_template_action_dy" model="ir.actions.act_window">
+            <field name="name">Dynamic Products</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.template</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="dynamicProduct_product_template_form_view"/>
+            <field name="context">{"search_default_filter_to_sell":1}</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to define a new product.
+                </p><p>
+                    You must define a product for everything you sell, whether it's a physical product, a consumable or a service you offer to  customers.               
+                </p><p>
+                    The product form contains information to simplify the sale process: price, notes in the quotation, accounting data, procurement methods, etc.
+                </p>
+            </field>
+        </record>
+
+
+        <menuitem action="dynamicProduct.product_template_action_dy" id="menu_product_template_action_dynamicProduct" sequence="14"/> 
+
+    </data>
+</openerp>
